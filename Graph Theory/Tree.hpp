@@ -3,7 +3,8 @@
 
 struct GetD {
 public:
-	int n, rt, len, rt2;
+	int n, mid1, len, mid2, rt, center;
+	std::vector<int> siz, dep;
 
 private:
 	std::vector<std::vector<int>> e;
@@ -16,11 +17,26 @@ public:
 		mdf.resize(n + 1);
 		sedf.resize(n + 1);
 		upd.resize(n + 1);
-		len = 0, rt = rt2 = -1;
+		siz.resize(n + 1);
+		dep.resize(n + 1);
+		len = 0, mid1 = mid2 = -1, rt = 1;
 	}
 
 private:
 	void dfs(int u, int fa) {
+		siz[u] = 1;
+		int maxs = 0;
+		for (int v : e[u]) {
+			if (v == fa) continue;
+			dep[v] = dep[u] + 1;
+			dfs(v, u);
+			siz[u] += siz[v];
+			maxs = std::max(maxs, siz[v]);
+		}
+		if (std::max(maxs, n - siz[u]) <= n / 2)
+			rt = u;
+	}
+	void dfs1(int u, int fa) {
 		md[u] = sed[u] = 0;
 		for (int v : e[u]) {
 			if (v == fa) continue;
@@ -53,16 +69,21 @@ private:
 	}
 
 public:
-	void solve() {
-		dfs(1, 0);
-		dfs2(1, 0);
+	void getLenAndMidpoint() {
+		dfs(rt, rt);
+		dfs2(rt, rt);
 		int maxd = INT_MAX;
 		for (int i = 1; i <= n; ++i)
 			if (std::max(upd[i], md[i]) < maxd)
-				maxd = std::max(upd[i], md[i]), rt = i;
+				maxd = std::max(upd[i], md[i]), mid1 = i;
 			else if (std::max(upd[i], md[i]) == maxd)
-				rt2 = i;
-		if (std::max(upd[rt], md[rt]) != std::max(upd[rt2], md[rt2]))
-			rt2 = -1;
+				mid2 = i;
+		if (std::max(upd[mid1], md[mid1]) != std::max(upd[mid2], md[mid2]))
+			mid2 = -1;
+		rt = mid1;
+	}
+	void getCenter() {
+		dfs1(rt, rt);
+		center = rt;
 	}
 };
