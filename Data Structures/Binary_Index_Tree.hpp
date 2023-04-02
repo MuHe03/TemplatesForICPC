@@ -1,7 +1,8 @@
 #include <vector>
 #include <functional>
 
-template<typename T> struct BinaryIndexTree {
+template<typename T>
+struct BinaryIndexTree {
 private:
 	std::vector<T> a;
 	T nullValue;
