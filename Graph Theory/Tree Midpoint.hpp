@@ -15,6 +15,7 @@ private:
 		mdf.resize(n + 1);
 		sedf.resize(n + 1);
 		upd.resize(n + 1);
+        len = 0;
 	}
 
 	void dfs(int u, int fa) {
