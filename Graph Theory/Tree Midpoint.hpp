@@ -2,7 +2,10 @@
 #include <climits>
 
 struct GetD {
+public:
 	int n, rt, len;
+
+private:
 	std::vector<std::vector<int>> e;
 	std::vector<int> md, sed, mdf, sedf, upd;
 
@@ -46,6 +49,7 @@ struct GetD {
 			len = std::max(len, md[u] + upd[u]);
 	}
 
+public:
 	void solve() {
 		dfs(1, 0);
 		dfs2(1, 0);
