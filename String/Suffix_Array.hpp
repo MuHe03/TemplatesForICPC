@@ -112,16 +112,3 @@ public:
         return ht;
     }
 };
-
-int main() {
-    using namespace std;
-    string s;
-    cin >> s;
-    SuffixArray SA(s);
-    SA.buildST();
-    auto sa = SA.getSA();
-    for (int i = 1; i <= s.size(); ++i)
-        cout << sa[i] << " ";
-    cout << endl;
-    return 0;
-}
