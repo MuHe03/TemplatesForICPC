@@ -11,9 +11,9 @@ public:
     SparseTable() {}
     /*
     @param a: the array to build sparse table on
-    @param cmp: the function to compare two elements, default is std::min
+    @param cmp: the function to compare two elements, default is min
     */
-    SparseTable(std::vector<T> &a, T (*cmp)(T, T) = std::min<T>) {
+    SparseTable(std::vector<T> &a, T (*cmp)(T, T) = [](T a, T b){return a < b ? a : b;}) {
         this->cmp = cmp;
         int n = a.size();
         val = std::vector<std::vector<T>>(n + 1, std::vector<T>(1 + (int)log2(n)));
