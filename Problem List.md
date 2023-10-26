@@ -4,7 +4,7 @@
 
 ### 线段树
 - [ ] [线段树分治](https://www.luogu.com.cn/problem/P5787)
-- [ ] [线段树合并](https://www.luogu.com.cn/problem/P4556)
+- [x] [线段树合并](https://www.luogu.com.cn/problem/P4556) https://www.luogu.com.cn/record/131786171
 - [ ] [线段树分裂](https://www.luogu.com.cn/problem/P5494)
 
 ## 图论
