@@ -12,5 +12,5 @@
 
 ### 网络流
 
-- [X] [无源汇有上下界可行流](https://www.cnblogs.com/caterpillor/p/15658834.html) https://loj.ac/p/115
-- [ ] [上下界网络流](https://www.cnblogs.com/caterpillor/p/15658834.html)
+- [X] [无源汇有上下界可行流](https://www.cnblogs.com/caterpillor/p/15658834.html) https://loj.ac/s/1922060
+- [X] [有源汇有上下界最大流](https://loj.ac/p/116) https://loj.ac/s/1922079
